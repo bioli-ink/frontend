@@ -43,6 +43,7 @@ jobs:
       # 4. 安装依赖并构建
       - name: Install and Build
         run: |
+          npm install -g pnpm
           pnpm install
           npm run build
 
