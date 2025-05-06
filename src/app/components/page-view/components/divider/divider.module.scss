@@ -1,0 +1,16 @@
+.wrapper {
+  @apply my-[10px] flex justify-center items-center;
+}
+
+.inner-wrapper {
+  @apply flex justify-between items-center;
+}
+
+.divider {
+  // 统一的边框色有点浅，在这里用不太合适
+  @apply border-b-[1px] border-[--text-color] flex-1;
+}
+
+.text {
+  @apply mx-[10px] text-[var(--text-color)] text-[12px];
+}

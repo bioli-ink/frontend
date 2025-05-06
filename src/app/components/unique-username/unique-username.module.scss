@@ -1,0 +1,27 @@
+.count {
+  @apply h-full flex items-center;
+}
+
+.description {
+  @apply flex justify-start items-center gap-[4px];
+}
+
+.username-tips {
+  @apply flex flex-col justify-start items-start gap-[5px] text-[14px] text-[var(--text-color)];
+}
+
+.validate-row {
+  @apply flex justify-start items-center gap-[5px];
+}
+
+.dot {
+  @apply inline-block w-[6px] h-[6px] rounded bg-[var(--border-secondary-color)];
+
+  &.valid {
+    @apply bg-[hsl(var(--nextui-success)/var(--nextui-success-opacity,var(--tw-bg-opacity)))];
+
+    & + span {
+      @apply text-[hsl(var(--nextui-success)/var(--nextui-success-opacity,var(--tw-bg-opacity)))];
+    }
+  }
+}

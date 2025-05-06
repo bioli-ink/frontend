@@ -1,0 +1,7 @@
+.wrapper {
+  @apply rounded-full;
+}
+
+.card-body--wrapper {
+  @apply text-center px-[20px] py-[12px] cursor-pointer;
+}

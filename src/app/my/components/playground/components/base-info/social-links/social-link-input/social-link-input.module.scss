@@ -1,0 +1,23 @@
+.wrapper {
+  @apply flex flex-col gap-4;
+}
+
+.redirect-source {
+  @apply text-[12px] break-keep self-center;
+}
+
+.image-selector {
+  @apply w-[100%];
+}
+
+.image-preview {
+  @apply flex flex-col justify-center items-center gap-4 relative;
+}
+
+.image-upload--tips {
+  @apply text-[14px] text-[var(--main-color)] font-bold;
+}
+
+.reset-image {
+  @apply absolute top-0 left-0;
+}

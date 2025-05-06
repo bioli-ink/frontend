@@ -1,0 +1,7 @@
+.wrapper {
+  @apply bg-[var(--background)];
+}
+
+.main-content {
+  @apply w-[inherit] overflow-y-auto mx-auto;
+}

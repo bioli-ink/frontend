@@ -1,0 +1,39 @@
+.wrapper {
+  @apply w-full;
+}
+
+.upper {
+  @apply w-full text-center;
+}
+
+.title {
+  @apply text-[20px] text-default-900 font-bold mb-[20px];
+}
+
+.sub-title {
+  @apply text-[14px] mb-[30px];
+}
+
+.form-wrapper {
+  @apply w-full flex flex-col gap-8;
+
+  & > * {
+    @apply flex-1;
+  }
+}
+
+.btn-submit {
+  @apply mt-[40px];
+}
+
+.lower {
+  @apply text-[14px] mt-[30px] text-[var(--text-color)] text-center;
+}
+
+.btn-status {
+  @apply p-0 min-w-[auto] opacity-80;
+
+  &:hover {
+    @apply bg-transparent opacity-100;
+  }
+}

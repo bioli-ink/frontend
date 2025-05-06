@@ -1,0 +1,13 @@
+.preview-wrapper {
+  @apply w-[40%] h-[100vh] border-l-[1px] border-[var(--border-color)] text-[14px];
+}
+
+.preview-inner-wrapper {
+  @apply mx-auto h-full flex justify-center items-center;
+}
+
+// TODO 窗口大小改变时的动画效果
+// .preview-device-wrapper,
+// .preview-device {
+//   @apply transition-all duration-100 ease-out;
+// }

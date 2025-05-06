@@ -1,0 +1,35 @@
+.wrapper {
+  @apply flex justify-start items-start gap-4;
+}
+
+.content {
+  @apply flex flex-col gap-2;
+}
+
+.avatar {
+  @apply w-[64px] h-[64px] cursor-pointer;
+
+  &:hover {
+    @apply shadow-xl;
+  }
+}
+
+.username {
+  @apply text-xl font-bold cursor-pointer break-all;
+
+  &:hover {
+    @apply underline;
+  }
+}
+
+.bio {
+  @apply text-sm font-light text-[var(--text-color)] cursor-pointer break-all;
+
+  &:hover {
+    @apply underline;
+  }
+}
+
+.social-links {
+  @apply mt-2;
+}

@@ -1,0 +1,113 @@
+name: Build and Deploy Static Files
+on:
+  push:
+    branches:
+      - 'test' # 开发环境分支
+      - 'main' # 生产环境分支
+      # 开发者可以在这里添加更多需要部署的分支
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    # 根据分支来决定环境，main分支为生产环境，其他分支为test环境
+    environment: ${{ github.ref == 'refs/heads/main' && 'production' || 'test' }}
+    permissions:
+      contents: write # 允许工作流写入内容（用于部署）
+    steps:
+      # 1. 检出代码
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      # 2. 设置 Node.js 环境（根据你的项目需要修改版本）
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+
+      # 3. 创建.env文件并写入密钥
+      - name: Create .env file
+        run: |
+          # 确保文件存在并以换行符结尾
+          [ -f .env ] && echo "" >> .env || touch .env
+          echo "NEXT_PUBLIC_SERVER_DOMAIN=${{ vars.NEXT_PUBLIC_SERVER_DOMAIN }}" >> .env
+          echo "NEXT_PUBLIC_IMAGE_DOMAIN=${{ vars.NEXT_PUBLIC_IMAGE_DOMAIN }}" >> .env
+          echo "NEXT_PUBLIC_IMAGE_UPLOAD=${{ vars.NEXT_PUBLIC_IMAGE_UPLOAD }}" >> .env
+          echo "NEXT_PUBLIC_IFRAMELY_KEY=${{ secrets.NEXT_PUBLIC_IFRAMELY_KEY }}" >> .env
+
+      # 3.1. Print .env file for debugging
+      - name: Debug .env file
+        run: |
+          echo "Checking .env file contents:"
+          cat .env
+
+      # 4. 安装依赖并构建
+      - name: Install and Build
+        run: |
+          pnpm install
+          npm run build
+
+      # 5. 写入 SSH key
+      - name: Create SSH key
+        run: |
+          mkdir -p ~/.ssh/
+          echo "${{ secrets.SSH_PRIVATE_KEY }}" > ~/.ssh/private.key
+          chmod 600 ~/.ssh/private.key
+      
+      # 6. 添加 known hosts
+      - name: Add known hosts
+        run: |
+          ssh-keyscan -H ${{ secrets.SERVER_HOST_IP }} >> ~/.ssh/known_hosts
+
+      # 7. 部署到服务器
+      - name: Deploy to Server
+        env:
+          SERVER_HOST: ${{ secrets.SERVER_HOST_IP }}
+          SERVER_USERNAME: ${{ secrets.SERVER_USERNAME }}
+          DEPLOY_PATH: /app/bioli.ink-org/${{ github.ref == 'refs/heads/master' && 'production' || 'test' }}/frontend
+          NODE_ENV: ${{ github.ref == 'refs/heads/master' && 'production' || 'test' }}
+        run: |
+          pnpm install
+          npm run build
+
+          # 将应用文件传输到服务器
+          rsync -avz --delete \
+            -e "ssh -i ~/.ssh/private.key" \
+            --exclude 'node_modules' \
+            --exclude '.git' \
+            --exclude '.github' \
+            ./ $SERVER_USERNAME@$SERVER_HOST:$DEPLOY_PATH
+
+          # 在远程服务器上执行部署命令
+          ssh -i ~/.ssh/private.key $SERVER_USERNAME@$SERVER_HOST "cd $DEPLOY_PATH && \
+          pnpm install && \
+          npm run restart:test"
+
+          # 删除本地的私钥文件
+          rm -rf ~/.ssh/private.key
+
+      # 8. 成功的通知
+      - name: Notify Feishu on success
+        if: success()
+        run: |
+          # 获取最近一次提交的 commit message
+          COMMIT_MESSAGE=$(git log -1 --pretty=format:"%s")
+
+          curl -X POST -H "Content-Type: application/json" \
+          -d '{
+            "msg_type": "text",
+            "content": {
+              "text": "bioli.ink  C端部署成功！仓库：${{ github.repository }}，分支：${{ github.ref_name }}，最近一次提交信息：'"$COMMIT_MESSAGE"'"
+            }
+          }' ${{ secrets.FEISHU_ACTION_RESULT_WEBHOOK_URL }}
+
+      # 9.失败的通知
+      - name: Notify Feishu on failure
+        if: failure()
+        run: |
+          curl -X POST -H "Content-Type: application/json" \
+          -d '{
+            "msg_type": "text",
+            "content": {
+              "text": "bioli.ink  C端部署失败！仓库：${{ github.repository }}，分支：${{ github.ref_name }}"
+            }
+          }' ${{ secrets.FEISHU_ACTION_RESULT_WEBHOOK_URL }}
