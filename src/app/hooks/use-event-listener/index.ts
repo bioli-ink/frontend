@@ -21,5 +21,6 @@ export function useEventListener(eventName: EVENTS | Partial<Record<EVENTS, Func
         event.off(ev, cb);
       });
     };
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 };

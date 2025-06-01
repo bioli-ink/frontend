@@ -24,5 +24,6 @@ export const useTodayImage = () => {
     if (!storage || storage !== dayjs().format('YYYY-MM-DD')) {
       run();
     }
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 };
