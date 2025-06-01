@@ -3,7 +3,7 @@ import dynamic from 'next/dynamic';
 import Loading from '@/app/components/loading';
 
 const MockUp = dynamic(
-  () => import(/* webpackChunkName: MockUp */ './component'),
+  () => import(/* webpackChunkName: "MockUp" */ './component'),
   {
     ssr: false,
     loading: () => <Loading />,
