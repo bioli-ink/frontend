@@ -6,8 +6,8 @@
     "dev": "next dev",
     "build": "next build",
     "lint": "next lint",
-    "start": "cross-env pm2 start npm --name \"bioli-ink-${NODE_ENV}\" -- start",
-    "stop": "cross-env pm2 delete bioli-ink-${NODE_ENV}",
+    "start": "pm2 start npm --name \"bioli-ink-${NODE_ENV}\" -- start",
+    "stop": "pm2 delete bioli-ink-${NODE_ENV}",
     "restart": "npm run start"
   },
   "dependencies": {
