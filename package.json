@@ -11,7 +11,6 @@
     "restart": "npm run stop && npm run start"
   },
   "dependencies": {
-    "@miestasmia/react-sortablejs": "^6.1.5",
     "@heroui/accordion": "2.2.8",
     "@heroui/avatar": "2.2.7",
     "@heroui/badge": "2.2.6",
@@ -35,6 +34,7 @@
     "@heroui/system": "2.4.7",
     "@heroui/theme": "2.4.6",
     "@heroui/tooltip": "2.2.8",
+    "@miestasmia/react-sortablejs": "^6.1.5",
     "@reduxjs/toolkit": "^2.3.0",
     "ahooks": "^3.8.1",
     "axios": "^1.7.7",
@@ -66,6 +66,7 @@
     "@types/sortablejs": "^1.15.8",
     "@types/validator": "^13.12.2",
     "autoprefixer": "^10.4.20",
+    "cross-env": "^7.0.3",
     "eslint": "^8",
     "eslint-config-next": "15.0.2",
     "eslint-plugin-simple-import-sort": "^12.1.1",
