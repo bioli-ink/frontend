@@ -51,6 +51,10 @@ jobs:
       - name: Add known hosts
         run: |
           ssh-keyscan -H ${{ secrets.SERVER_HOST_IP }} >> ~/.ssh/known_hosts
+      
+      # 5.1. Install pnpm
+      - name: Install pnpm
+        run: npm install -g pnpm
 
       # 6. 安装依赖并构建
       - name: Install and Build
