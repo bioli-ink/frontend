@@ -80,7 +80,6 @@ jobs:
 
           # 在远程服务器上执行部署命令
           ssh -i ~/.ssh/private.key $SERVER_USERNAME@$SERVER_HOST "cd $DEPLOY_PATH && \
-          echo $NODE_ENV && \
           NODE_ENV=$NODE_ENV npm run restart"
 
           # 删除本地的私钥文件
