@@ -40,24 +40,23 @@ jobs:
           echo "Checking .env file contents:"
           cat .env
 
-      # 4. 安装依赖并构建
-      - name: Install and Build
-        run: |
-          npm install -g pnpm
-          pnpm install
-          npm run build
-
-      # 5. 写入 SSH key
+      # 4. 写入 SSH key
       - name: Create SSH key
         run: |
           mkdir -p ~/.ssh/
           echo "${{ secrets.SSH_PRIVATE_KEY }}" > ~/.ssh/private.key
           chmod 600 ~/.ssh/private.key
       
-      # 6. 添加 known hosts
+      # 5. 添加 known hosts
       - name: Add known hosts
         run: |
           ssh-keyscan -H ${{ secrets.SERVER_HOST_IP }} >> ~/.ssh/known_hosts
+
+      # 6. 安装依赖并构建
+      - name: Install and Build
+        run: |
+          pnpm install
+          npm run build
 
       # 7. 部署到服务器
       - name: Deploy to Server
@@ -67,9 +66,6 @@ jobs:
           DEPLOY_PATH: /app/bioli.ink-org/${{ github.ref == 'refs/heads/master' && 'production' || 'test' }}/frontend
           NODE_ENV: ${{ github.ref == 'refs/heads/master' && 'production' || 'test' }}
         run: |
-          pnpm install
-          npm run build
-
           # 将应用文件传输到服务器
           rsync -avz --delete \
             -e "ssh -i ~/.ssh/private.key" \
@@ -81,7 +77,7 @@ jobs:
           # 在远程服务器上执行部署命令
           ssh -i ~/.ssh/private.key $SERVER_USERNAME@$SERVER_HOST "cd $DEPLOY_PATH && \
           pnpm install && \
-          npm run restart:test"
+          NODE_ENV=$NODE_ENV npm run restart"
 
           # 删除本地的私钥文件
           rm -rf ~/.ssh/private.key

@@ -5,11 +5,10 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "start": "next start",
     "lint": "next lint",
-    "start:prod": "pm2 start npm --name 'bioli-ink' -- start",
-    "stop": "pm2 stop bioli-ink",
-    "restart": "pm2 stop bioli-ink && pm2 delete bioli-ink && npm run start:prod"
+    "start": "cross-env pm2 start npm --name 'bioli-ink-${NODE_ENV}' -- start",
+    "stop": "cross-env pm2 delete bioli-ink-${NODE_ENV}",
+    "restart": "npm run stop && npm run start"
   },
   "dependencies": {
     "@miestasmia/react-sortablejs": "^6.1.5",
