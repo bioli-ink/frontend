@@ -75,6 +75,7 @@ export default function Playground() {
     return () => {
       clearTimeout(timeout);
     }
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const { run: runUpdateModule } = useUpdateModule();
@@ -87,6 +88,7 @@ export default function Playground() {
       id: userModules.id,
       json: JSON.stringify(userModules.modules),
     });
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [userModules]);
 
   return (
