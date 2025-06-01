@@ -6,9 +6,9 @@
     "dev": "next dev",
     "build": "next build",
     "lint": "next lint",
-    "start": "cross-env pm2 start npm --name 'bioli-ink-${NODE_ENV}' -- start",
+    "start": "cross-env pm2 start npm --name \"bioli-ink-${NODE_ENV}\" -- start",
     "stop": "cross-env pm2 delete bioli-ink-${NODE_ENV}",
-    "restart": "npm run stop && npm run start"
+    "restart": "npm run start"
   },
   "dependencies": {
     "@heroui/accordion": "2.2.8",
