@@ -27,7 +27,7 @@ Table of contents
 font & reset css
 --------------------------------------------- 
 */
-@import url("https://fonts.googleapis.com/css?family=Raleway:100,300,400,500,700,900");
+@use url("https://fonts.googleapis.com/css?family=Raleway:100,300,400,500,700,900");
 /* 
 ---------------------------------------------
 reset
