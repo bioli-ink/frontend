@@ -1,0 +1,33 @@
+.wrapper {
+  @apply flex w-[100%] h-[100%];
+}
+
+.content-left {
+  @apply w-[300px] h-[100%] px-[10px] py-[5px] flex flex-col justify-start items-center gap-[20px];
+}
+
+.title {
+  @apply text-[14px] text-[var(--text-color)];
+}
+
+.content-right {
+  @apply relative w-[450px] h-[100%] rounded-br-[var(--nextui-radius-large)] bg-[var(--background)];
+}
+
+.render-area--footer {
+  @apply absolute right-0 bottom-0 left-0 px-[40px] pb-[20px] flex justify-between;
+}
+
+.page-view--wrapper {
+  transform: scale(0.5) translate(275px, 75px);
+  transform-origin: top left;
+  @apply absolute top-0 left-0;
+
+  main {
+    overflow: hidden;
+  }
+}
+
+.logo-with-slogan {
+  @apply flex justify-end items-center gap-[10px];
+}

@@ -1,0 +1,37 @@
+.wrapper {
+  @apply h-full overflow-auto rounded-[3em] relative;
+}
+
+.inner-wrapper {
+  @apply px-[15px] py-[33px];
+}
+
+.base-info {
+  @apply flex flex-col items-center mb-[10px];
+}
+
+.avatar {
+  @apply w-[100px] h-[100px];
+}
+
+.username {
+  @apply text-[16px] font-semibold mt-[15px] text-center;
+}
+
+.bio {
+  @apply max-w-[80%] text-center mt-[15px];
+
+  word-wrap: break-word;
+}
+
+.social-links {
+  @apply mt-[25px];
+}
+
+.user-modules {
+  @apply mt-[20px] flex flex-col gap-4;
+}
+
+.footer-logo {
+  @apply mt-[35px];
+}

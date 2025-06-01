@@ -1,0 +1,11 @@
+.wrapper {
+  @apply rounded-full;
+}
+
+.plain-url-wrapper {
+  @apply text-center;
+}
+
+.url {
+  @apply px-[20px] py-[12px];
+}

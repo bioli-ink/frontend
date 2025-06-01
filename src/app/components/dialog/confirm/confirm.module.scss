@@ -1,0 +1,15 @@
+.wrapper {
+  @apply p-[22px] flex flex-col gap-[15px];
+}
+
+.title {
+  @apply font-extrabold text-[16px] text-center;
+}
+
+.content {
+  @apply text-[14px] text-[var(--text-color)] text-center;
+}
+
+.action {
+  @apply flex justify-center items-center gap-[20px];
+}

@@ -1,0 +1,19 @@
+.wrapper {
+  @apply flex justify-center items-center;
+}
+
+.icon-loading {
+  @apply flex justify-center items-center animate-[loading_0.6s_linear_infinite] origin-center;
+}
+
+@keyframes loading {
+  from {
+    transform: rotate(0);
+  }
+  50% {
+    transform: rotate(180deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}

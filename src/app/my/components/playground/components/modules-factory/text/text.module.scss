@@ -1,0 +1,7 @@
+.align {
+  @apply flex justify-between items-center;
+}
+
+.radio {
+  @apply border-[var(--main-color)];
+}

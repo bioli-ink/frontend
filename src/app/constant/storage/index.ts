@@ -1,0 +1,2 @@
+export const AUTH_TOKEN_KEY = 'BIOLI_INK_TOKEN';
+export const DAILY_IMAGE = 'BIOLI_INK_DAILY_IMAGE';

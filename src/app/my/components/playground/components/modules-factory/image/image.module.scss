@@ -1,0 +1,11 @@
+.preview-wrapper {
+  @apply relative w-[100px] h-[100px] cursor-pointer;
+}
+
+.empty-wrapper {
+  @apply flex justify-center items-center w-full h-full text-[14px] leading-none rounded-[4px] bg-[var(--area-background)];
+}
+
+.img-preview {
+  @apply w-[100px] h-[100px] object-cover;
+}

@@ -1,0 +1,11 @@
+.options-block {
+  @apply w-full;
+}
+
+.options-list {
+  @apply flex flex-col justify-start items-center gap-[10px] mt-[15px];
+}
+
+.sub-title {
+  @apply text-center text-[var(--main-text-color)];
+}

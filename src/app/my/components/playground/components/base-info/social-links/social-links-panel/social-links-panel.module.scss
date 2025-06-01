@@ -1,0 +1,11 @@
+.wrapper {
+  @apply flex flex-col gap-4;
+}
+
+.icon-position-options {
+  @apply mt-[10px];
+}
+
+.empty-tips {
+  @apply text-center text-[12px] text-[var(--text-color)];
+}

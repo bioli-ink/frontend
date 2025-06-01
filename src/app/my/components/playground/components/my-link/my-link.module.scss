@@ -1,0 +1,19 @@
+.wrapper {
+  @apply px-[20px] py-[10px];
+}
+
+.inner-wrapper {
+  @apply flex gap-2 items-center;
+}
+
+.icon-share {
+  @apply cursor-pointer text-[14px];
+}
+
+.mockup-content {
+  @apply min-w-[750px] h-[608px];
+}
+
+.mockup-body {
+  @apply p-0;
+}

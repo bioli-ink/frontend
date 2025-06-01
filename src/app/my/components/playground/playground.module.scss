@@ -1,0 +1,15 @@
+.wrapper {
+  @apply flex-1 flex relative;
+}
+
+.action-wrapper {
+  @apply min-w-[100px] h-[100vh] flex-1 block overflow-auto;
+}
+
+.action-inner-wrapper {
+  @apply flex flex-col gap-8 max-w-[640px] mx-auto my-[20px] px-[20px];
+}
+
+.modules {
+  @apply flex flex-col gap-4;
+}

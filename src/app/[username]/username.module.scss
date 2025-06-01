@@ -1,0 +1,8 @@
+.extra-area {
+  @apply flex justify-center pb-[100px];
+}
+
+.btn-join {
+  @apply shadow-lg bg-white/60 hover:bg-white font-bold transition duration-75;
+}
+

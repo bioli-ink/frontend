@@ -1,0 +1,13 @@
+.add-module {
+  @apply flex justify-between items-center gap-4;
+
+  & > * {
+    @apply flex-1;
+  }
+}
+
+.add-link {
+  .add-link_icon {
+    @apply text-[12px];
+  }
+}

@@ -1,0 +1,7 @@
+.wrapper {
+  @apply relative flex justify-center items-center;
+}
+
+.qrcode-logo {
+  @apply absolute top-[50%] left-[50%] translate-x-[-50%] translate-y-[-50%] bg-[var(--main-color)] rounded-[10px];
+}

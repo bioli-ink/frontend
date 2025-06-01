@@ -1,0 +1,27 @@
+.wrapper {
+  @apply relative rounded-[10px];
+}
+
+.image-wrapper {
+  @apply relative aspect-video rounded-t-[10px] cursor-pointer;
+}
+
+.image {
+  @apply absolute w-full h-full object-cover rounded-t-[10px];
+}
+
+.label {
+  @apply absolute top-[10px] right-[10px] z-10 bg-[var(--main-color)];
+}
+
+.footer {
+  @apply min-h-[80px] flex flex-col items-center justify-center gap-[10px] p-[15px] bg-[var(--area-background)] rounded-b-[10px];
+}
+
+.title {
+  @apply text-center text-[14px] font-bold;
+}
+
+.description {
+  @apply text-center text-[12px] text-[var(--text-color)];
+}
