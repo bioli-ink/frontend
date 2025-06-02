@@ -1,12 +1,21 @@
-@use 'tailwindcss/utilities' as *;
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
 
-@use './variable.scss';
-@use './layer.scss';
+@import './variable.scss';
+@import './layer.scss';
 
-@use './custom.scss';
+@import './custom.scss';
 
-@tailwind components;
-@tailwind utilities;
+// @use 'tailwindcss/utilities' as *;
+
+// @use './variable.scss';
+// @use './layer.scss';
+
+// @use './custom.scss';
+
+// @tailwind components;
+// @tailwind utilities;
 
 html, body {
   height: 100%;
