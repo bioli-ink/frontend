@@ -91,4 +91,6 @@ class Events {
   }
 }
 
-export default new Events();
+const event = new Events();
+
+export default event;

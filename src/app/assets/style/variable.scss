@@ -1,0 +1,27 @@
+:root {
+  // 站点的主色
+  --main-color: #fb5467;
+
+  --main-text-color: #333;
+  --text-color: #676b5f;
+
+  --background: #f3f3f1;
+  --foreground: #171717;
+
+  --deep-background: #e7e9e2;
+  --light-background: #f6f7f5;
+
+  --border-color: #e0e2d9;
+  --border-secondary-color: #a8aaa2;
+
+  --area-background: #E0E2D9;
+
+  --priority-alert: 100000;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+  }
+}

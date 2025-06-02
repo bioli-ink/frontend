@@ -1,0 +1,9 @@
+@layer components {
+  .hover-bg {
+    @apply cursor-pointer transition;
+
+    &:hover {
+      @apply bg-black/5;
+    }
+  }
+}

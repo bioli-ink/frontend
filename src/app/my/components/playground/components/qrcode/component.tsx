@@ -25,6 +25,7 @@ export default function QRCode({
 
       setSuccess(true);
     })
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [text]);
 
   return (

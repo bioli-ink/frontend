@@ -1,0 +1,35 @@
+.btn-main-color {
+  @apply bg-[var(--main-color)] text-white;
+}
+
+// 主色调旁边的按钮，一般都是和 .btn-main-color 一起用
+.btn-main-color-other {
+  @apply text-[var(--main-color)] bg-white;
+}
+
+.main-title {
+  @apply text-[16px] font-semibold;
+}
+
+.secondary-title {
+  @apply text-[14px] font-light;
+}
+
+/**
+ *  拖拽排序相关的公共样式 start
+ */
+.drag-ghost {
+  @apply opacity-0;
+}
+
+.drag-chosen {
+  @apply bg-white shadow cursor-grabbing cursor-[-webkit-grabbing];
+}
+/**
+ *  拖拽排序相关的公共样式 end
+ */
+
+// 模拟手机外观
+.device-shell {
+  @apply relative w-[350px] h-[750px] border-5 border-[#333] rounded-[3em] shadow-2xl;
+}
