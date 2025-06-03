@@ -50,3 +50,5 @@ export default async function Slug({ params }: { params: Promise<{ username: str
     </Suspense>
   );
 }
+
+export const runtime = "edge";

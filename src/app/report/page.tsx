@@ -6,3 +6,5 @@ export default function Report() {
   // TODO
   // return <>Report</>;
 }
+
+export const runtime = "edge";
