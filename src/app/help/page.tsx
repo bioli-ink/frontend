@@ -6,5 +6,3 @@ export default function Feedback() {
   //TODO
   // return <>Feedback</>;
 }
-
-export const runtime = "edge";

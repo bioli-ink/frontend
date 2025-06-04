@@ -14,5 +14,3 @@ export default function My() {
     </Layout>
   )
 }
-
-export const runtime = "edge";
